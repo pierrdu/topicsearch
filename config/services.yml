@@ -1,0 +1,11 @@
+services:
+    lmdi.topicsearch.listener:
+        class: lmdi\topicsearch\event\listener
+        arguments:
+            - '@template'
+            - '@config'
+            - '@user'
+            - '%core.root_path%'
+            - '%core.php_ext%'
+        tags:
+            - { name: event.listener }

@@ -1,0 +1,15 @@
+<!-- IF S_ADTOPICS -->
+	<!-- INCLUDEJS @lmdi_topicsearch/topicsearch.js -->
+<!-- ENDIF -->
+<!-- IF S_MASK_MYPOSTS -->
+	<!-- INCLUDEJS @lmdi_topicsearch/mytop.js -->
+<!-- ENDIF -->
+<!-- IF S_MYTOPICS -->
+	<!-- IF S_DISPLAY_SEARCH and S_REGISTERED_USER -->
+		<!-- IF S_320 -->
+			<li> <a href="{U_MYTOPICS}" role="menuitem"><i class="icon fa-file-o fa-fw" aria-hidden="true"></i><span>{L_MY_TOPICS}</span></a></li>
+		<!-- ELSE -->
+			<li class="small-icon icon-search-self"><a href="{U_MYTOPICS}" role="menuitem">{L_MY_TOPICS}</a></li>
+		<!-- ENDIF -->
+	<!-- ENDIF -->
+<!-- ENDIF -->
