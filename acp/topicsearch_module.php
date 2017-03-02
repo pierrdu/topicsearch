@@ -36,10 +36,10 @@ class topicsearch_module {
 			}
 
 			$advanced = $request->variable ('advanced', 0);
-			var_dump ($advanced);
+			// var_dump ($advanced);
 			$config->set ('lmdi_topicsearch_ad', $advanced);
 			$keywords = $request->variable ('keywords', 0);
-			var_dump ($keywords);
+			// var_dump ($keywords);
 			$config->set ('lmdi_topicsearch_kw', $keywords);
 
 			$yes = $request->variable ('mytop_yes', 0);
