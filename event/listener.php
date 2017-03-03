@@ -23,6 +23,7 @@ class listener implements EventSubscriberInterface
 	protected $template;
 	protected $config;
 	protected $user;
+	protected $request;
 	protected $phpbb_root_path;
 	protected $phpEx;
 
@@ -31,12 +32,14 @@ class listener implements EventSubscriberInterface
 		\phpbb\template\template $template,
 		\phpbb\config\config $config,
 		\phpbb\user $user,
+		\phpbb\request\request $request,
 		$phpbb_root_path,
 		$phpEx)
 	{
 		$this->template = $template;
 		$this->config = $config;
 		$this->user = $user;
+		$this->request = $request;
 		$this->phpbb_root_path = $phpbb_root_path;
 		$this->phpEx = $phpEx;
 
@@ -132,8 +135,19 @@ class listener implements EventSubscriberInterface
 		$sort_by_sql = $event['sort_by_sql'];
 		$search_id = $event['search_id'];
 		$show_results = $event['show_results'];
+		$ex_fid_ary = $event['ex_fid_ary'];
+		$id_ary = $event['id_ary'];
+		$t = $this->request->variable ('t', 0);
+		/*
+		var_dump ($t);
+		var_dump ($sort_by_sql);
+		var_dump ($search_id);
+		var_dump ($ex_fid_ary);
+		var_dump ($id_ary);
+		var_dump ($show_results);
+		*/
 		$topics = $this->config['lmdi_topicsearch_kw'];
-		if ($search_id == '' && $topics)
+		if ($search_id == '' && $topics && !$t)
 		{
 			$sort_by_sql['t'] = 't.topic_last_post_time';
 			$sort_by_sql['s'] = 't.topic_title';

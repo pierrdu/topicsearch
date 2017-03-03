@@ -3,8 +3,8 @@
 	"type": "phpbb-extension",
 	"description": "Changes the search results to always topics",
 	"homepage": "http://www.insecte.org/ext/readme.txt",
-	"version": "1.0.1",
-	"time": "2017-3-2",
+	"version": "1.0.2",
+	"time": "2017-3-3",
 	"license": "GPL-2.0",
 	"authors": [
 		{
