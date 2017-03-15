@@ -138,8 +138,10 @@ class listener implements EventSubscriberInterface
 		$ex_fid_ary = $event['ex_fid_ary'];
 		$id_ary = $event['id_ary'];
 		$t = $this->request->variable ('t', 0);
+		$sr = $this->request->variable ('sr', '');
 		/*
 		var_dump ($t);
+		var_dump ($sr);
 		var_dump ($sort_by_sql);
 		var_dump ($search_id);
 		var_dump ($ex_fid_ary);
@@ -147,7 +149,7 @@ class listener implements EventSubscriberInterface
 		var_dump ($show_results);
 		*/
 		$topics = $this->config['lmdi_topicsearch_kw'];
-		if ($search_id == '' && $topics && !$t)
+		if ($search_id == '' && $topics && !$t && $sr != 'posts')
 		{
 			$sort_by_sql['t'] = 't.topic_last_post_time';
 			$sort_by_sql['s'] = 't.topic_title';
