@@ -16,13 +16,13 @@ class topicsearch_module {
 
 	public function main ($id, $mode)
 	{
-		global $db, $user, $template, $cache, $request;
+		global $db, $language, $template, $cache, $request;
 		global $config, $phpbb;
 		global $table_prefix, $phpbb_log;
 
-		$user->add_lang_ext ('lmdi/topicsearch', 'topicsearch');
+		$language->add_lang ('topicsearch', 'lmdi/topicsearch');
 		$this->tpl_name = 'acp_topicsearch_body';
-		$this->page_title = $user->lang('ACP_TOPICSEARCH_TITLE');
+		$this->page_title = $language->lang('ACP_TOPICSEARCH_TITLE');
 
 		$action = $request->variable ('action', '');
 		$update_action = false;
@@ -69,7 +69,7 @@ class topicsearch_module {
 			{
 				$config->set ('lmdi_topicsearch_ql', -1);
 			}
-			trigger_error($user->lang['ACP_TOPICSEARCH_UPDATED'] . adm_back_link($this->u_action));
+			trigger_error($language->lang('ACP_TOPICSEARCH_UPDATED') . adm_back_link($this->u_action));
 		}
 
 		add_form_key ($form_key);

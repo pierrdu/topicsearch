@@ -2,7 +2,7 @@
 /**
 *
 * @package phpBB Extension - LMDI Topic Search
-* @copyright (c) 2017 LMDI - Pierre Duhem
+* @copyright (c) 2017-2019 LMDI - Pierre Duhem
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -70,15 +70,6 @@ class listener implements EventSubscriberInterface
 
 	public function build_url($event)
 	{
-		if (version_compare ($this->config['version'], '3.2.x', '<'))
-		{
-			$mytop_320 = 0;
-		}
-		else
-		{
-			$mytop_320 = 1;
-		}
-
 		$options = $this->config['lmdi_topicsearch_ql'];
 		$s_mytopics = true;
 		$hidden = 0;
@@ -115,7 +106,6 @@ class listener implements EventSubscriberInterface
 			'S_MASK_MYPOSTS'	=> $hidden == 1 ? true : false,
 			'S_MYTOP_AFTER'	=> $down == 1 ? true : false,
 			'S_MYTOP_BEFORE'	=> $down == 0 ? true : false,
-			'S_320'			=> $mytop_320,
 		));
 	}
 
@@ -139,15 +129,6 @@ class listener implements EventSubscriberInterface
 		$id_ary = $event['id_ary'];
 		$t = $this->request->variable ('t', 0);
 		$sr = $this->request->variable ('sr', '');
-		/*
-		var_dump ($t);
-		var_dump ($sr);
-		var_dump ($sort_by_sql);
-		var_dump ($search_id);
-		var_dump ($ex_fid_ary);
-		var_dump ($id_ary);
-		var_dump ($show_results);
-		*/
 		$topics = $this->config['lmdi_topicsearch_kw'];
 		if ($search_id == '' && $topics && !$t && $sr != 'posts')
 		{
