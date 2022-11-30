@@ -2,15 +2,15 @@
 	"name": "lmdi/topicsearch",
 	"type": "phpbb-extension",
 	"description": "Changes the search results to always topics",
-	"homepage": "http://www.insecte.org/ext/readme.txt",
-	"version": "1.0.4",
-	"time": "2019-12-12",
-	"license": "GPL-2.0",
+	"homepage": "https://www.insecte.org/ext/readme.txt",
+	"version": "1.0.5",
+	"time": "2022-11-30",
+	"license": "GPL-2.0-only",
 	"authors": [
 		{
 		"name": "Pierre Duhem",
 		"email": "pierre@duhem.com",
-		"homepage": "http://www.insecte.org/ext/readme.txt",
+		"homepage": "https://www.insecte.org/ext/readme.txt",
 		"role": "Extension Developer"
 		}
 	],
